@@ -1,0 +1,79 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+enum ProfileSkillLevel {
+  BEGINNER
+  INTERMEDIATE
+  ADVANCED
+  EXPERT
+}
+
+model Profile {
+  id          Int    @id @default(autoincrement())
+  name        String
+  description String
+
+  profileSkills      ProfileSkill[]
+  profileExperiences ProfileExperience[]
+  profileProjects    ProfileProject[]
+}
+
+model ProfileSkill {
+  profileId Int
+  skillId   Int
+
+  profile Profile @relation(fields: [profileId], references: [id])
+  skill   Skill   @relation(fields: [skillId], references: [id])
+
+  level ProfileSkillLevel
+
+  @@id([profileId, skillId])
+}
+
+model Skill {
+  id            Int            @id @default(autoincrement())
+  name          String
+  profileSkills ProfileSkill[]
+}
+
+model ProfileExperience {
+  profileId Int
+  companyId Int
+
+  title       String
+  description String
+  startDate   DateTime
+  endDate     DateTime
+  current     Boolean  @default(false)
+
+  profile Profile @relation(fields: [profileId], references: [id])
+  company Company @relation(fields: [companyId], references: [id])
+
+  @@id([profileId, companyId])
+}
+
+model Company {
+  id                 Int                 @id @default(autoincrement())
+  name               String
+  description        String
+  logo               String
+  profileExperiences ProfileExperience[]
+}
+
+model ProfileProject {
+  id Int @id @default(autoincrement())
+
+  profileId Int
+
+  title   String
+  siteUrl String?
+  repoUrl String
+
+  profile Profile @relation(fields: [profileId], references: [id])
+}

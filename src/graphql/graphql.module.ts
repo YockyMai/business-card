@@ -11,7 +11,12 @@ import './graphql.enums';
     GraphQLModule.forRoot<ApolloDriverConfig>({
       driver: ApolloDriver,
       graphiql: false,
-      plugins: [ApolloServerPluginLandingPageLocalDefault() as any],
+      introspection: true,
+      plugins: [
+        ApolloServerPluginLandingPageLocalDefault({
+          embed: true,
+        }) as any,
+      ],
       autoSchemaFile: join(process.cwd(), 'src/generated/graphql/schema.gql'),
       sortSchema: true,
     }),

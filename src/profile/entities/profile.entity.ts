@@ -1,5 +1,4 @@
 import { ObjectType, Field, Int } from '@nestjs/graphql';
-import { Skill } from '../../skill/entities/skill.entity.js';
 
 @ObjectType()
 export class Profile {
@@ -11,13 +10,4 @@ export class Profile {
 
   @Field(() => String, { description: 'Profile description' })
   description: string;
-
-  @Field(() => [Skill], { description: 'Profile skills' })
-  skills: Skill[];
-
-  // @Field(() => [ProfileExperience], { description: 'Profile experiences' })
-  // profileExperiences: ProfileExperience[];
-
-  // @Field(() => [ProfileProject], { description: 'Profile projects' })
-  // profileProjects: ProfileProject[];
 }

@@ -8,7 +8,7 @@
   "scripts": {
     "docker:down": "docker compose down",
     "docker:up": "docker compose up -d",
-    "build": "npx prisma db seed && nest build",
+    "build": "nest build",
     "deploy": "nest deploy",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
     "start": "nest start",

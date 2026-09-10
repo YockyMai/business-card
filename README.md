@@ -1,6 +1,6 @@
 Тестовое задание для ITSolutions
 
-Приложение развернуто на vercel (https://business-card-yockymais-projects.vercel.app/graphql)
+Приложение развернуто на vercel ([https://business-card-yockymais-projects.vercel.app/graphql](https://business-card-psi-umber.vercel.app/graphql))
 
 Для локального запуска требуется установить NodeJS 20+ и DockerEngine
 

@@ -8,4 +8,10 @@
  *
  * 🟢 You can import this file directly.
  */
+export type * from './models/Profile.js'
+export type * from './models/ProfileSkill.js'
+export type * from './models/Skill.js'
+export type * from './models/ProfileExperience.js'
+export type * from './models/Company.js'
+export type * from './models/ProfileProject.js'
 export type * from './commonInputTypes.js'

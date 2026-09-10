@@ -2,28 +2,28 @@
 # THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
 # ------------------------------------------------------
 
-input CreateProfileInput {
-  """Example field (placeholder)"""
-  exampleField: Int!
-}
-
-type Mutation {
-  createProfile(createProfileInput: CreateProfileInput!): Profile!
-  removeProfile(id: Int!): Profile!
-  updateProfile(updateProfileInput: UpdateProfileInput!): Profile!
-}
-
 type Profile {
-  """Example field (placeholder)"""
-  exampleField: Int!
+  """Profile description"""
+  description: String!
+
+  """Profile ID"""
+  id: Int!
+
+  """Profile name"""
+  name: String!
+
+  """Profile skills"""
+  skills: [Skill!]!
 }
 
 type Query {
   profile(id: Int!): Profile!
 }
 
-input UpdateProfileInput {
-  """Example field (placeholder)"""
-  exampleField: Int
+type Skill {
+  """Profile ID"""
   id: Int!
+
+  """Skill name"""
+  name: String!
 }

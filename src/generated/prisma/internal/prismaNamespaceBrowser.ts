@@ -51,7 +51,12 @@ export const AnyNull = runtime.AnyNull
 
 
 export const ModelName = {
-
+  Profile: 'Profile',
+  ProfileSkill: 'ProfileSkill',
+  Skill: 'Skill',
+  ProfileExperience: 'ProfileExperience',
+  Company: 'Company',
+  ProfileProject: 'ProfileProject'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -68,4 +73,88 @@ export const TransactionIsolationLevel = runtime.makeStrictEnum({
 } as const)
 
 export type TransactionIsolationLevel = (typeof TransactionIsolationLevel)[keyof typeof TransactionIsolationLevel]
+
+
+export const ProfileScalarFieldEnum = {
+  id: 'id',
+  name: 'name',
+  description: 'description'
+} as const
+
+export type ProfileScalarFieldEnum = (typeof ProfileScalarFieldEnum)[keyof typeof ProfileScalarFieldEnum]
+
+
+export const ProfileSkillScalarFieldEnum = {
+  profileId: 'profileId',
+  skillId: 'skillId',
+  level: 'level'
+} as const
+
+export type ProfileSkillScalarFieldEnum = (typeof ProfileSkillScalarFieldEnum)[keyof typeof ProfileSkillScalarFieldEnum]
+
+
+export const SkillScalarFieldEnum = {
+  id: 'id',
+  name: 'name'
+} as const
+
+export type SkillScalarFieldEnum = (typeof SkillScalarFieldEnum)[keyof typeof SkillScalarFieldEnum]
+
+
+export const ProfileExperienceScalarFieldEnum = {
+  profileId: 'profileId',
+  companyId: 'companyId',
+  title: 'title',
+  description: 'description',
+  startDate: 'startDate',
+  endDate: 'endDate',
+  current: 'current'
+} as const
+
+export type ProfileExperienceScalarFieldEnum = (typeof ProfileExperienceScalarFieldEnum)[keyof typeof ProfileExperienceScalarFieldEnum]
+
+
+export const CompanyScalarFieldEnum = {
+  id: 'id',
+  name: 'name',
+  description: 'description'
+} as const
+
+export type CompanyScalarFieldEnum = (typeof CompanyScalarFieldEnum)[keyof typeof CompanyScalarFieldEnum]
+
+
+export const ProfileProjectScalarFieldEnum = {
+  id: 'id',
+  profileId: 'profileId',
+  title: 'title',
+  description: 'description',
+  url: 'url',
+  repoUrl: 'repoUrl'
+} as const
+
+export type ProfileProjectScalarFieldEnum = (typeof ProfileProjectScalarFieldEnum)[keyof typeof ProfileProjectScalarFieldEnum]
+
+
+export const SortOrder = {
+  asc: 'asc',
+  desc: 'desc'
+} as const
+
+export type SortOrder = (typeof SortOrder)[keyof typeof SortOrder]
+
+
+export const QueryMode = {
+  default: 'default',
+  insensitive: 'insensitive'
+} as const
+
+export type QueryMode = (typeof QueryMode)[keyof typeof QueryMode]
+
+
+export const NullsOrder = {
+  first: 'first',
+  last: 'last'
+} as const
+
+export type NullsOrder = (typeof NullsOrder)[keyof typeof NullsOrder]
 

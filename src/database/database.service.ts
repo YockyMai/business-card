@@ -8,6 +8,8 @@ export class DatabaseService
   implements OnModuleInit, OnModuleDestroy
 {
   constructor() {
+    //@ts-ignore
+    console.log(process.env.DATABASE_URL);
     super({
       adapter: new PrismaPg({
         connectionString: process.env.DATABASE_URL,

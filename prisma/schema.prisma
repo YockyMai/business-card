@@ -7,7 +7,7 @@ datasource db {
   provider = "postgresql"
 }
 
-enum ProfileSkillLevel {
+enum SkillLevel {
   BEGINNER
   INTERMEDIATE
   ADVANCED
@@ -31,14 +31,14 @@ model ProfileSkill {
   profile Profile @relation(fields: [profileId], references: [id])
   skill   Skill   @relation(fields: [skillId], references: [id])
 
-  level ProfileSkillLevel
+  level SkillLevel
 
   @@id([profileId, skillId])
 }
 
 model Skill {
   id            Int            @id @default(autoincrement())
-  name          String
+  name          String         @unique
   profileSkills ProfileSkill[]
 }
 
@@ -49,8 +49,8 @@ model ProfileExperience {
   title       String
   description String
   startDate   DateTime
-  endDate     DateTime
-  current     Boolean  @default(false)
+  endDate     DateTime?
+  current     Boolean   @default(false)
 
   profile Profile @relation(fields: [profileId], references: [id])
   company Company @relation(fields: [companyId], references: [id])
@@ -62,7 +62,6 @@ model Company {
   id                 Int                 @id @default(autoincrement())
   name               String
   description        String
-  logo               String
   profileExperiences ProfileExperience[]
 }
 
@@ -71,9 +70,10 @@ model ProfileProject {
 
   profileId Int
 
-  title   String
-  siteUrl String?
-  repoUrl String
+  title       String
+  description String?
+  url         String?
+  repoUrl     String[]
 
   profile Profile @relation(fields: [profileId], references: [id])
 }

@@ -1,26 +1,22 @@
-import { Injectable } from '@nestjs/common';
-import { CreateProfileInput } from './dto/create-profile.input';
-import { UpdateProfileInput } from './dto/update-profile.input';
+import { HttpStatus, Injectable } from '@nestjs/common';
+import { DatabaseService } from '../database/database.service';
+import { GraphQLException } from '../common/exceptions/graphql.exception';
 
 @Injectable()
 export class ProfileService {
-  create(createProfileInput: CreateProfileInput) {
-    return 'This action adds a new profile';
-  }
+  constructor(private readonly db: DatabaseService) {}
 
-  findAll() {
-    return `This action returns all profile`;
-  }
+  public async findOne(id?: number) {
+    const profile = await this.db.profile.findUnique({
+      where: {
+        id,
+      },
+    });
 
-  findOne(id: number) {
-    return `This action returns a #${id} profile`;
-  }
+    if (!profile) {
+      throw new GraphQLException('Profile not found', HttpStatus.NOT_FOUND);
+    }
 
-  update(id: number, updateProfileInput: UpdateProfileInput) {
-    return `This action updates a #${id} profile`;
-  }
-
-  remove(id: number) {
-    return `This action removes a #${id} profile`;
+    return profile;
   }
 }

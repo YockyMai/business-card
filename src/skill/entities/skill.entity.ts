@@ -1,4 +1,5 @@
 import { ObjectType, Field, Int } from '@nestjs/graphql';
+import { SkillLevel } from '../../generated/prisma/enums';
 
 @ObjectType()
 export class Skill {
@@ -8,6 +9,6 @@ export class Skill {
   @Field(() => String, { description: 'Skill name' })
   name: string;
 
-  // @Field(() => SkillLevel, { description: 'Skill level' })
-  // level: SkillLevel;
+  @Field(() => SkillLevel, { description: 'Skill level' })
+  level: SkillLevel;
 }

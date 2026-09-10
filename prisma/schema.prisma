@@ -16,7 +16,7 @@ enum SkillLevel {
 
 model Profile {
   id          Int    @id @default(autoincrement())
-  name        String
+  name        String @unique
   description String
 
   profileSkills      ProfileSkill[]
@@ -59,9 +59,10 @@ model ProfileExperience {
 }
 
 model Company {
-  id                 Int                 @id @default(autoincrement())
-  name               String
-  description        String
+  id          Int    @id @default(autoincrement())
+  name        String @unique
+  description String
+
   profileExperiences ProfileExperience[]
 }
 
@@ -73,7 +74,7 @@ model ProfileProject {
   title       String
   description String?
   url         String?
-  repoUrl     String[]
+  repoUrl     String[] @default([])
 
   profile Profile @relation(fields: [profileId], references: [id])
 }

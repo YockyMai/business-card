@@ -15,7 +15,7 @@
     "start:dev": "nest start --watch",
     "start:debug": "nest start --debug --watch",
     "start:prod": "node dist/main",
-    "db:seed": "tsx prisma/seeds/seed.ts",
+    "db:seed": "npx prisma db seed",
     "lint": "oxlint src/ test/",
     "test": "jest",
     "test:watch": "jest --watch",

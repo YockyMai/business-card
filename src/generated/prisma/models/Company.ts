@@ -212,13 +212,13 @@ export type CompanyOrderByWithRelationInput = {
 
 export type CompanyWhereUniqueInput = Prisma.AtLeast<{
   id?: number
+  name?: string
   AND?: Prisma.CompanyWhereInput | Prisma.CompanyWhereInput[]
   OR?: Prisma.CompanyWhereInput[]
   NOT?: Prisma.CompanyWhereInput | Prisma.CompanyWhereInput[]
-  name?: Prisma.StringFilter<"Company"> | string
   description?: Prisma.StringFilter<"Company"> | string
   profileExperiences?: Prisma.ProfileExperienceListRelationFilter
-}, "id">
+}, "id" | "name">
 
 export type CompanyOrderByWithAggregationInput = {
   id?: Prisma.SortOrder

@@ -2,18 +2,65 @@
 # THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
 # ------------------------------------------------------
 
+"""
+A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
+"""
+scalar DateTime
+
+type Experience {
+  """Experience company ID"""
+  companyId: Int!
+
+  """Current working at the experience"""
+  current: Boolean!
+
+  """Experience description"""
+  description: String!
+
+  """Experience end date"""
+  endDate: DateTime
+
+  """Experience profile ID"""
+  profileId: Int!
+
+  """Experience start date"""
+  startDate: DateTime!
+
+  """Experience title"""
+  title: String!
+}
+
 type Profile {
   """Profile description"""
   description: String!
+  experiences: [Experience!]!
 
   """Profile ID"""
   id: Int!
 
   """Profile name"""
   name: String!
+  projects: [Project!]!
 
   """Profile skills"""
   skills: [Skill!]!
+}
+
+type Project {
+  """Project description"""
+  description: String
+
+  """Profile ID"""
+  id: Int!
+
+  """Project repository URL"""
+  repoUrl: [String!]!
+
+  """Project title"""
+  title: String!
+
+  """Project URL"""
+  url: String
 }
 
 type Query {
@@ -24,6 +71,17 @@ type Skill {
   """Profile ID"""
   id: Int!
 
+  """Skill level"""
+  level: SkillLevel!
+
   """Skill name"""
   name: String!
+}
+
+"""The available skill levels for a profile skill"""
+enum SkillLevel {
+  ADVANCED
+  BEGINNER
+  EXPERT
+  INTERMEDIATE
 }

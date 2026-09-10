@@ -56,13 +56,19 @@ CREATE TABLE "ProfileProject" (
     "title" TEXT NOT NULL,
     "description" TEXT,
     "url" TEXT,
-    "repoUrl" TEXT[],
+    "repoUrl" TEXT[] DEFAULT ARRAY[]::TEXT[],
 
     CONSTRAINT "ProfileProject_pkey" PRIMARY KEY ("id")
 );
 
 -- CreateIndex
+CREATE UNIQUE INDEX "Profile_name_key" ON "Profile"("name");
+
+-- CreateIndex
 CREATE UNIQUE INDEX "Skill_name_key" ON "Skill"("name");
+
+-- CreateIndex
+CREATE UNIQUE INDEX "Company_name_key" ON "Company"("name");
 
 -- AddForeignKey
 ALTER TABLE "ProfileSkill" ADD CONSTRAINT "ProfileSkill_profileId_fkey" FOREIGN KEY ("profileId") REFERENCES "Profile"("id") ON DELETE RESTRICT ON UPDATE CASCADE;

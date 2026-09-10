@@ -6,6 +6,9 @@ import { GraphqlModule } from './graphql/graphql.module';
 import { ProfileModule } from './profile/profile.module';
 import { SkillModule } from './skill/skill.module';
 import { ConfigModule } from '@nestjs/config';
+import { CompanyModule } from './company/company.module';
+import { ExperienceModule } from './experience/experience.module';
+import { ProjectModule } from './project/project.module';
 
 @Module({
   imports: [
@@ -16,6 +19,9 @@ import { ConfigModule } from '@nestjs/config';
     ConfigModule.forRoot({
       isGlobal: true,
     }),
+    CompanyModule,
+    ExperienceModule,
+    ProjectModule,
   ],
   controllers: [AppController],
   providers: [AppService],

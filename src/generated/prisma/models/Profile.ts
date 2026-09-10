@@ -216,15 +216,15 @@ export type ProfileOrderByWithRelationInput = {
 
 export type ProfileWhereUniqueInput = Prisma.AtLeast<{
   id?: number
+  name?: string
   AND?: Prisma.ProfileWhereInput | Prisma.ProfileWhereInput[]
   OR?: Prisma.ProfileWhereInput[]
   NOT?: Prisma.ProfileWhereInput | Prisma.ProfileWhereInput[]
-  name?: Prisma.StringFilter<"Profile"> | string
   description?: Prisma.StringFilter<"Profile"> | string
   profileSkills?: Prisma.ProfileSkillListRelationFilter
   profileExperiences?: Prisma.ProfileExperienceListRelationFilter
   profileProjects?: Prisma.ProfileProjectListRelationFilter
-}, "id">
+}, "id" | "name">
 
 export type ProfileOrderByWithAggregationInput = {
   id?: Prisma.SortOrder

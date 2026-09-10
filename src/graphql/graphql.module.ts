@@ -15,9 +15,12 @@ import './graphql.enums.js';
       plugins: [
         ApolloServerPluginLandingPageLocalDefault({
           embed: true,
-        }) as any,
+        }),
       ],
-      autoSchemaFile: join(process.cwd(), 'src/generated/graphql/schema.gql'),
+      autoSchemaFile:
+        process.env.NODE_ENV === 'production'
+          ? true
+          : join(process.cwd(), 'src/generated/graphql/schema.gql'),
       sortSchema: true,
     }),
   ],

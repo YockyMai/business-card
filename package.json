@@ -5,11 +5,12 @@
   "author": "",
   "private": true,
   "license": "UNLICENSED",
+  "type": "module",
   "scripts": {
     "docker:down": "docker compose down",
     "docker:up": "docker compose up -d",
     "build": "nest build",
-    "build:vercel": "prisma generate && nest build",
+    "build:vercel": "prisma generate && prisma migrate deploy && nest build",
     "deploy": "nest deploy",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
     "start": "nest start",
@@ -17,12 +18,7 @@
     "start:debug": "nest start --debug --watch",
     "start:prod": "node dist/main",
     "db:seed": "npx prisma db seed",
-    "lint": "oxlint src/ test/",
-    "test": "jest",
-    "test:watch": "jest --watch",
-    "test:cov": "jest --coverage",
-    "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
-    "test:e2e": "jest --config ./test/jest-e2e.json"
+    "lint": "oxlint src/ test/"
   },
   "dependencies": {
     "@apollo/server": "^5.5.1",

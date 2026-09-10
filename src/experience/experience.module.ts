@@ -1,6 +1,6 @@
 import { Module } from '@nestjs/common';
-import { ExperienceService } from './experience.service';
-import { ExperienceResolver } from './experience.resolver';
+import { ExperienceService } from './experience.service.js';
+import { ExperienceResolver } from './experience.resolver.js';
 
 @Module({
   providers: [ExperienceResolver, ExperienceService],

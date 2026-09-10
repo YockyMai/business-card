@@ -1,5 +1,5 @@
 import { Resolver } from '@nestjs/graphql';
-import { SkillService } from './skill.service';
+import { SkillService } from './skill.service.js';
 
 @Resolver()
 export class SkillResolver {

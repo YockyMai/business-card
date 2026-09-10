@@ -1,5 +1,5 @@
 import { Resolver } from '@nestjs/graphql';
-import { CompanyService } from './company.service';
+import { CompanyService } from './company.service.js';
 
 @Resolver()
 export class CompanyResolver {

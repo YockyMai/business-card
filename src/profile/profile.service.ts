@@ -1,6 +1,6 @@
 import { HttpStatus, Injectable } from '@nestjs/common';
-import { DatabaseService } from '../database/database.service';
-import { GraphQLException } from '../common/exceptions/graphql.exception';
+import { DatabaseService } from '../database/database.service.js';
+import { GraphQLException } from '../common/exceptions/graphql.exception.js';
 
 @Injectable()
 export class ProfileService {

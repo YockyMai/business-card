@@ -6,14 +6,14 @@ import {
   ResolveField,
   Parent,
 } from '@nestjs/graphql';
-import { ProfileService } from './profile.service';
-import { Profile } from './entities/profile.entity';
-import { SkillService } from '../skill/skill.service';
-import { Skill } from '../skill/entities/skill.entity';
-import { Experience } from '../experience/entities/experience.entity';
-import { Project } from '../project/entities/project.entity';
-import { ExperienceService } from '../experience/experience.service';
-import { ProjectService } from '../project/project.service';
+import { ProfileService } from './profile.service.js';
+import { Profile } from './entities/profile.entity.js';
+import { SkillService } from '../skill/skill.service.js';
+import { Skill } from '../skill/entities/skill.entity.js';
+import { Experience } from '../experience/entities/experience.entity.js';
+import { Project } from '../project/entities/project.entity.js';
+import { ExperienceService } from '../experience/experience.service.js';
+import { ProjectService } from '../project/project.service.js';
 
 @Resolver(() => Profile)
 export class ProfileResolver {

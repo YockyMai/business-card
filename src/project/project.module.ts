@@ -1,6 +1,6 @@
 import { Module } from '@nestjs/common';
-import { ProjectService } from './project.service';
-import { ProjectResolver } from './project.resolver';
+import { ProjectService } from './project.service.js';
+import { ProjectResolver } from './project.resolver.js';
 
 @Module({
   providers: [ProjectResolver, ProjectService],

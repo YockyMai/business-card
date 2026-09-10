@@ -1,5 +1,5 @@
 import { registerEnumType } from '@nestjs/graphql';
-import { SkillLevel } from '../generated/prisma/client';
+import { SkillLevel } from '../generated/prisma/client.js';
 
 registerEnumType(SkillLevel, {
   name: 'SkillLevel',

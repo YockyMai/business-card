@@ -1,5 +1,5 @@
 import { ObjectType, Field, Int } from '@nestjs/graphql';
-import { Skill } from '../../skill/entities/skill.entity';
+import { Skill } from '../../skill/entities/skill.entity.js';
 
 @ObjectType()
 export class Profile {

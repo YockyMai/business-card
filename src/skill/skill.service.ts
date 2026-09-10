@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
-import { DatabaseService } from '../database/database.service';
-import { Skill } from './entities/skill.entity';
+import { DatabaseService } from '../database/database.service.js';
+import { Skill } from './entities/skill.entity.js';
 
 @Injectable()
 export class SkillService {

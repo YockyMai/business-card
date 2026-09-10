@@ -1,4 +1,4 @@
-import { PrismaClient, SkillLevel } from '../../src/generated/prisma/client';
+import { PrismaClient, SkillLevel } from '../../src/generated/prisma/client.js';
 
 const PROFILE_NAME = 'Григорьев Валерий';
 
